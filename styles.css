@@ -1,0 +1,176 @@
+body {
+    background-color: #e4a2b7; /* Un rosa muy claro (MistyRose) */
+}
+
+.valentine-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-container {
+    display: flex;
+    gap: 15px; /* Separación uniforme entre imagen principal y laterales */
+    max-width: 1000px; /* Reducido de 1200px para hacer todo más pequeño */
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.main-image {
+    flex: 0 0 45%; /* Reducido de 50% para hacer la imagen principal más pequeña */
+}
+
+.main-image img {
+    width: 100%;
+    height: 400px; /* Altura fija para mejor control */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.side-images {
+    flex: 0 0 45%; /* Reducido de 50% para hacer las imágenes laterales más pequeñas */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px; /* Mismo valor que el gap del container para uniformidad */
+}
+
+.side-images img {
+    width: 100%;
+    height: 192.5px; /* (400px - 15px) / 2 para que coincida con la altura de la imagen principal */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.message-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 40px;
+}
+
+.love-message {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    color: #4a1c2a;
+    line-height: 1.8rem;
+    text-align: justify;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.heart-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+}
+
+.animated-heart {
+    fill: none;
+    stroke: #e31b23;
+    stroke-width: 15; /* Reducido para mejor visibilidad del trazo */
+    stroke-dasharray: 1550;
+    stroke-dashoffset: 1550;
+    animation: drawHeart 4s ease-in-out infinite; /* Aumentado el tiempo y hecho infinito */
+    transform-origin: center;
+    transform: scale(1.2); /* Hacemos el corazón un poco más grande */
+}
+
+@keyframes drawHeart {
+    0% {
+        stroke-dashoffset: 1550;
+        fill: transparent;
+        transform: scale(1);
+    }
+    70% {
+        stroke-dashoffset: 0;
+        fill: transparent;
+        transform: scale(1.1);
+    }
+    80% {
+        fill: transparent;
+        transform: scale(1);
+    }
+    90% {
+        fill: #e31b23;
+        transform: scale(1.1);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: transparent;
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .valentine-title {
+        font-size: 3rem; /* Título más pequeño en móviles */
+        margin-top: 1.5rem;
+    }
+
+    .gallery-container {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .main-image {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .main-image img {
+        height: 300px; /* Altura reducida para móviles */
+    }
+
+    .side-images {
+        flex: 0 0 auto;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .side-images img {
+        height: 145px; /* Altura ajustada para móviles */
+    }
+
+    .message-container {
+        padding: 0 20px;
+        margin: 2rem auto;
+    }
+
+    .love-message {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+    }
+
+    .animated-heart {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .valentine-title {
+        font-size: 2.5rem;
+    }
+
+    .main-image img {
+        height: 250px;
+    }
+
+    .side-images img {
+        height: 120px;
+    }
+
+    .love-message {
+        font-size: 1rem;
+        line-height: 1.6rem;
+    }
+
+    .animated-heart {
+        width: 60px;
+        height: 60px;
+    }
+}
